@@ -1,0 +1,114 @@
+Timestamp: Tue Jan 21 15:20:51 +0545 2025
+  380     1 /System/Library/  0.5  20.7
+21892     1 /System/Library/  0.1  14.0
+ 3777     1 /System/Library/  0.2   4.3
+ 5639   712 /Applications/Po  0.3   4.2
+ 7338     1 /System/Library/  0.0   3.8
+Timestamp: Tue Jan 21 15:26:02 +0545 2025
+21892     1 /System/Library/  0.1   8.6
+27576 34327 /private/var/fol  1.9   5.0
+ 7338     1 /System/Library/  0.0   4.6
+92084 34327 /private/var/fol  0.5   4.3
+92111 34327 /private/var/fol  0.5   4.2
+Timestamp: Tue Jan 21 15:28:29 +0545 2025
+21892     1 /System/Library/  0.1  23.6
+92083 34327 /private/var/fol  1.8   8.7
+  666     1 /System/Applicat  0.2   5.6
+27576 34327 /private/var/fol  1.1   4.2
+ 7338     1 /System/Library/  0.0   3.7
+Timestamp: Tue Jan 21 15:29:31 +0545 2025
+  380     1 /System/Library/  0.6   5.9
+  736     1 /System/Library/  0.3   5.0
+27576 34327 /private/var/fol  1.8   4.7
+92111 34327 /private/var/fol  0.6   3.6
+92083 34327 /private/var/fol  1.7   3.5
+Timestamp: Tue Jan 21 15:30:18 +0545 2025
+27576 34327 /private/var/fol  1.8   4.8
+  380     1 /System/Library/  0.6   4.5
+92111 34327 /private/var/fol  0.6   3.7
+92092 34327 /private/var/fol  1.7   3.7
+92085 34327 /private/var/fol  1.7   3.6
+Timestamp: Tue Jan 21 15:39:44 +0545 2025
+40962     1 /System/Library/  0.1  12.1
+ 1811   657 /Applications/Sl  0.2   9.1
+40963   654 /Applications/Go  0.3   5.0
+  380     1 /System/Library/  0.5   4.7
+92085 34327 /private/var/fol  1.6   4.3
+..............................................................
+Timestamp: Tue Jan 21 15:39:53 +0545 2025
+  320     1 /usr/sbin/system  0.1   8.0
+92084 34327 /private/var/fol  0.6   5.4
+92085 34327 /private/var/fol  1.6   4.6
+ 3777     1 /System/Library/  0.2   4.6
+27576 34327 /private/var/fol  0.5   4.4
+..............................................................
+Timestamp: Tue Jan 21 15:45:58 +0545 2025
+97075 92111 /Users/rohanmaha  0.1   8.5
+ 5639   712 /Applications/Po  0.3   4.8
+  412     1 /usr/sbin/coreau  0.1   4.4
+11021 10897 /Applications/Di  0.8   4.3
+40962     1 /System/Library/  0.1   4.2
+..............................................................
+Timestamp: Tue Jan 21 15:51:42 +0545 2025
+61390     1 /Applications/Ch  0.4  32.2
+  380     1 /System/Library/  0.4  20.5
+40962     1 /System/Library/  0.1   9.0
+    1     0 /sbin/launchd     0.0   7.9
+11299     1 /usr/libexec/tru  0.0   4.9
+..............................................................
+Timestamp: Tue Jan 21 15:58:11 +0545 2025
+92086 34327 /private/var/fol  1.8  15.7
+ 7338     1 /System/Library/  0.0   4.4
+  380     1 /System/Library/  0.4   4.4
+81463     1 /System/Library/  1.0   4.2
+  412     1 /usr/sbin/coreau  0.1   4.2
+..............................................................
+Timestamp: Tue Jan 21 16:05:01 +0545 2025
+  380     1 /System/Library/  0.6  14.3
+40962     1 /System/Library/  0.1   6.0
+  674     1 /System/Applicat  0.2   4.6
+92084 34327 /private/var/fol  1.6   3.8
+27576 34327 /private/var/fol  1.7   3.8
+..............................................................
+Timestamp: Tue Jan 21 16:10:44 +0545 2025
+92085 34327 /private/var/fol  1.8   4.7
+ 3777     1 /System/Library/  0.2   4.4
+92092 34327 /private/var/fol  1.8   4.2
+27576 34327 /private/var/fol  1.9   3.7
+92083 34327 /private/var/fol  1.8   3.5
+..............................................................
+Timestamp: Tue Jan 21 16:20:01 +0545 2025
+78596     1 /System/Library/  0.1  24.1
+78598     1 /usr/libexec/Rep  0.0   7.2
+78599     1 /System/Library/  0.0   6.9
+92111 34327 /private/var/fol  0.5   3.6
+92086 34327 /private/var/fol  1.8   3.4
+..............................................................
+Timestamp: Tue Jan 21 16:25:00 +0545 2025
+92092 34327 /private/var/fol  1.8  87.8
+38009     1 /System/Library/  0.2  68.4
+82270     1 /System/Library/  0.1  13.5
+82298     1 /System/Library/  0.1  13.4
+  921     1 /usr/libexec/sys  0.0   9.7
+..............................................................
+Timestamp: Tue Jan 21 16:30:00 +0545 2025
+85430   654 /Applications/Go  0.7 101.3
+  921     1 /usr/libexec/sys  0.0  54.1
+  320     1 /usr/sbin/system  0.1  18.5
+  380     1 /System/Library/  0.5   9.4
+  654     1 /Applications/Go  0.6   9.0
+..............................................................
+Timestamp: Tue Jan 21 16:35:00 +0545 2025
+90673     1 /System/Library/  0.0  12.2
+27576 34327 /private/var/fol  0.7   5.9
+34336 34327 /private/var/fol  0.9   5.8
+92084 34327 /private/var/fol  0.4   5.7
+92092 34327 /private/var/fol  0.4   5.0
+..............................................................
+Timestamp: Tue Jan 21 16:40:00 +0545 2025
+  921     1 /usr/libexec/sys  0.0   6.8
+96447     1 /System/Library/  0.1   6.7
+96451     1 /System/Library/  0.1   5.1
+92086 34327 /private/var/fol  0.7   3.9
+92085 34327 /private/var/fol  1.6   3.9
+..............................................................
