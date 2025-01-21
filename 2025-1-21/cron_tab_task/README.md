@@ -71,3 +71,23 @@ After updating the file and crontab the time shall be fixed to 5 minutes every d
 ```bash
     ./crontask.sh
 ```
+
+Userful links
+
+1
+
+```bash
+    https://crontab.guru/#5_*_*_*_*
+```
+
+2
+
+```bash
+    https://crontab.guru/examples.html
+```
+
+3
+
+```bash
+    https://crontab.guru/tips.html
+```
