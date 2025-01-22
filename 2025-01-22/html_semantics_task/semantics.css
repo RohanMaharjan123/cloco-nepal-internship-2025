@@ -1,0 +1,48 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+  
+  /* Header Styles */
+  header {
+    background: #4CAF50;
+    color: white;
+    padding: 25px;
+    text-align: center;
+  }
+  
+  /* Navigation Styles */
+  nav {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+  nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+  }
+  
+  /* Main Content Styles */
+
+  section {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
