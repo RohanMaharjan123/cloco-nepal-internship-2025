@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Arial", sans-serif;
+  }
+  
+  /* Sticky Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: #2a3744;
+    color: white;
+    padding: 1.5rem;
+    z-index: 1;
+  }
+  
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a3744; 
+    padding: 10px 20px;
+    
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 4rem;
+  }
+  
+  nav ul li:hover {
+        color: #ffffff; 
+  }
+  
+
+  
+  /* Main Content */
+  main {
+    max-width: 1200px;
+    margin: 2rem auto 5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  article {
+    background: #ffffff;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 10px;
+    padding: 1.8rem;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  article h2,
+  p,
+  ul li {
+    padding: 8px;
+  }
+  
+  /* Card Grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .card {
+    border: 1px solid rgb(110, 146, 161);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  /* Gallery */
+  .gallery {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  @media (min-width: 768px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Sidebar */
+  .sticky-sidebar {
+    position: sticky;
+    top: 6rem;
+    background: #ffffff;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: fit-content;
+  }
+  
+  .badge {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    background: rgb(238, 42, 42);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Footer */
+  footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+ 
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  
+    nav ul {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
