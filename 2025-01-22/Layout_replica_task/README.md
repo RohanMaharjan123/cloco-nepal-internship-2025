@@ -2,7 +2,7 @@
 
 ## Task Overview
 
-Make a site Replica using Semantic HTMl and Modern CSS.
+Make a site Replica using Semantic HTML and Modern CSS.
 
 ## Here is a screenshot of the output
 
