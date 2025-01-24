@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+            <h2>Simple Function for changing text or say paragraph.</h2><br/>
+            <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt aliquid cupiditate, ipsam hic, commodi, eveniet illo numquam natus voluptas ullam odit minus maiores atque perspiciatis exercitationem labore. Accusamus, repellat molestiae.</p> <br/>
+            <button id="buttonOnclick"  type="submit" onclick="buttonOnClick()">
+                Click for change
+            </button>
+    <script>
+        const paragraph = document.getElementById("paragraph");
+        const text = document.getElementById("buttonOnclick");
+
+
+        buttonOnClick = function() {
+            paragraph.textContent = "This text has been changed using onclick!";
+        }
+
+
+    </script>
+</body>
+</html>
