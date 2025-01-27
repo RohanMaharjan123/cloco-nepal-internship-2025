@@ -22,14 +22,14 @@ Replicating the existing Form Task as you would.
 
 ## 4
 
-![First](./output/output4.png)
+![First](./output/output3.png)
 
 ## 5
 
-![Second](./output/output5.png)
+![Second](./output/output4.png)
 
 ## After submitting the form
 
 ## 6
 
-![Third](./output/output6.png)
+![Third](./output/output5.png)
