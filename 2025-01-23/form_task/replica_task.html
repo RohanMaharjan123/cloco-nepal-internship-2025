@@ -5,126 +5,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="replica_task.css">
     <title>Application Form</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("DatingForm");
+        let error = false;
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevents submission
+
+            error = false; // Reset error
+            validatingName();
+            validatingAddress();
+            validatingEmail();
+            validatingPhone();
+            validatingIQ();
+            validatingDate();
+            validatingEssay();
+
+            if (!error) {
+                alert("Form submitted successfully!");
+                form.reset(); 
+            }
+        });
+
+        const validatingName = () => {
+            const name = document.getElementById("name").value.trim();
+            const errorField = document.getElementById("nameError");
+            if (name.length < 3 || name.length > 40) {
+                errorField.textContent = "Name must be between 3 and 40 characters.";
+                error = true;
+            } else {
+                errorField.textContent = "";
+                return true;
+            }
+        };
+
+        const validatingAddress = () => {
+            const address = document.getElementById("address").value.trim();
+            const errorField = document.getElementById("addressError");
+            if (address.length < 3) {
+                errorField.textContent = "Address must be at least 3 characters long.";
+                error = true;
+            } else {
+                errorField.textContent = "";
+                return true;
+            }
+        };
+
+        const validatingEmail = () => {
+            const email = document.getElementById("email").value.trim();
+            const errorField = document.getElementById("emailError");
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorField.textContent = "Please enter a valid email address.";
+                error = true;
+            } else {
+                errorField.textContent = "";
+                return true;
+            }
+        };
+
+        const validatingPhone = () => {
+            const phone = document.getElementById("phone").value.trim();
+            const errorField = document.getElementById("phoneError");
+            if (!/^\d{10}$/.test(phone)) {
+                errorField.textContent = "Phone number must be exactly 10 digits.";
+                error = true;
+            } else {
+                errorField.textContent = "";
+                return true;
+            }
+        };
+
+        const validatingIQ = () => {
+            const iq = document.getElementById("iq").value.trim();
+            const errorField = document.getElementById("iqError");
+            if (iq < 80 || iq > 200) {
+                errorField.textContent = "IQ must be between 80 and 200.";
+                error = true;
+            } else {
+                errorField.textContent = "";
+                return true;
+            }
+        };
+
+        function validateCheckbox() {
+                    const checkbox = document.querySelector(
+                        'input[type="checkbox"]:checked'
+                    );
+                    const checkboxError = document.getElementById("checkboxError");
+
+                    if (!checkbox) {
+                        checkboxError.textContent = "Please select at least one option.";
+                        return false;
+                    } else {
+                        checkboxError.textContent = "";
+                        return true;
+                    }
+                }
+        const validatingDate = () => {
+            const date = document.getElementById("date").value;
+            const errorField = document.getElementById("dateError");
+            if (!date) {
+                errorField.textContent = "Please select a valid date.";
+                error = true;
+            } else {
+                errorField.textContent = "";
+                return true;
+            }
+        };
+
+        const validatingEssay = () => {
+            const essay = document.getElementById("essay").value.trim();
+            const errorField = document.getElementById("essayError");
+            if (essay.length < 50) {
+                errorField.textContent = "Essay must be at least 50 words.";
+                error = true;
+            } else {
+                errorField.textContent = "";
+                return true;
+            }
+        };
+    });
+        </script>
 </head>
 <body>
-    <form action="">
-        <h1>Application For Permission To Date My Daughter</h1>
-        <p><b>Note:</b> Form is to be completed at least 21 days prior to the date.</p>
-
-        <fieldset>
-            <legend>Personal Details</legend>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name">
-            <span class="error-message" id="nameError"></span>
-            <br><br>
+    <main id="container">
+        <form id="DatingForm">
+            <h1>Application For Permission To Date My Daughter</h1>
+            <p><b>Note:</b> Form is to be completed at least 21 days prior to the date.</p>
             
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" placeholder="Enter your address">
-            <br><br>
+            <fieldset>
+                <legend>Personal Details</legend>
+                <label for="name" id="applicationForm">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name" onchange="validateName()" required>
+                <span class="error-message" id="nameError"></span>
+                <br><br>
+                
+                <label for="address">Address:</label>
+                <input type="text" name="address" id="address" placeholder="Enter your address" onchange="validateAddress()" required>
+                <span class="error-message" id="addressError"></span>
+                <br><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <span class="error-message" id="emailError"></span>
+                <br><br>
+                
+                <label for="phone">Phone Number:</label>
+                <input  type="tel" name="number" id="phone" placeholder="Enter 10-digit phone number" onchange="validatePhone()" required>
+                <span class="error-message" id="phoneError"></span>
+                <br><br>
+                
+                <label for="iq">IQ:</label>
+                <input type="number" name="iq" id="iq" placeholder="Enter your IQ" onchange="validateIQ()">
+                <span class="error-message" id="iqError"></span>
+                <br><br>
+                
+                <label>Gender:</label><br>
+                <input type="radio" name="gender" value="male" id="male" checked>
+                <label for="male">Male</label><br>
+                <br>
+                
+                <label for="date">Date of Proposed Outing:</label>
+                <input type="date" id="date" name="date" required>
+                <span class="error-message" id="dateError"></span>
+            </fieldset>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email">
-            <br><br>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit number">
-            <br><br>
-            
-            <label for="iq">IQ:</label>
-            <input type="number" id="iq" name="iq" placeholder="Enter your IQ">
-            <br><br>
-            
-            <label>Gender:</label><br>
-            <input type="radio" name="gender" value="male" id="male" checked>
-            <label for="male">Male</label><br>
-            
-            <input type="radio" name="gender" value="female" id="female">
-            <label for="female">Female</label><br>
-            
-            <input type="radio" name="gender" value="other" id="other">
-            <label for="other">Other</label><br><br>
-            
-            <label for="date">Date of Proposed Outing:</label>
-            <input type="date" id="date" name="date">
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-            <legend>Check All That Apply</legend>
-            <label><input type="checkbox" name="tattoos"> I have tattoos and/or piercings</label><br><br>
-            <label><input type="checkbox" name="age_difference"> I am more than 2 years older than your daughter</label><br><br>
-            <label><input type="checkbox" name="car"> I own a panel van or V8 ute</label><br><br>
-            <label><input type="checkbox" name="employment" checked> I work full-time</label><br><br>
-            <label><input type="checkbox" name="wealthy_parents" checked> My parents are rich</label><br><br>
-            <label><input type="checkbox" name="public_location" checked> Is the date at a well-lit public location?</label><br><br>
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-            <legend>Additional Details</legend>
-            <label for="political_persuasion">Political Persuasion:</label>
-            <select name="political_persuasion" id="political_persuasion">
-                <option value="lw">Left Wing</option>
-                <option value="rw">Right Wing</option>
-                <option value="c">Conservative</option>
-                <option value="other">Other</option>
-            </select>
-            <br><br>
-            
-            <label for="education_level">Education Level:</label>
-            <select name="education_level" id="education_level">
-                <option value="uni">University</option>
-                <option value="college">College</option>
-                <option value="high_school">High School</option>
-                <option value="none">None</option>
-            </select>
-        </fieldset>
-
-        <br>
-
-        <fieldset>
-            <legend>Essay Section</legend>
-            <label for="essay">In 50 words or more, explain why you want to date my daughter:</label>
             <br>
-            <textarea name="essay" id="essay" placeholder="Enter text here"></textarea>
-            <br> <br>
-
-            <label for="references">Please upload contact details for 2 references:</label>
+            
+            <fieldset>
+                <legend>Check All That Apply</legend>
+                <label><input type="checkbox" name="tattoos" id="ch1" onchange="validateCheckbox()"> I have tattoos and/or piercings</label><br><br>
+                <label><input type="checkbox" name="age_difference" id="ch2"onchange="validateCheckbox()"> I am more than 2 years older than your daughter</label><br><br>
+                <label><input type="checkbox" name="car" id="ch3" onchange="validateCheckbox()"> I own a BYD, Tesla or BMW series X9</label><br><br>
+                <label><input type="checkbox" name="employment" id="ch4" onchange="validateCheckbox()"> I work full-time</label><br><br>
+                <label><input type="checkbox" name="wealthy_parents" id="ch5" onchange="validateCheckbox()"> My parents are rich</label><br><br>
+                <label><input type="checkbox" name="public_location" id="ch6" onchange="validateCheckbox()"> Is the date at a well-lit public location?</label><br><br>
+            </fieldset>
+            
             <br>
-            <textarea name="references" id="references" placeholder="Enter text here"></textarea>
-            <br> <br>
-
-            <p>Upload Police Clearance Certificate, Bank Statement, and Medical Certificates:</p>
-            <input type="file" id="file" multiple>
-        </fieldset>
-
-        <br>
-
-        <button type="submit">Send Your Application</button>
-    </form>
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form");
-
-    form.addEventListener("submit", (event) => {
-        event.preventDefault(); 
-
-        const nameInput = document.getElementById("name");
-
-        if (!nameInput.value.trim()) {
-            const errorMessage = document.createElement("div");
-            errorMessage.classList.add("error-message");
-            errorMessage.textContent = "Name cannot be empty.";
-            nameInput.after(errorMessage);
-            nameInput.focus();
-        } else {
-            form.submit(); // Submit the form if valid
-            document.getElementById("name").classList.remove("error");
-        }
-    });
-});
-    </script>
+            
+            <fieldset>
+                <legend>Educational Details</legend>
+                
+                <label for="education_level">Education Level:</label>
+                <select name="education_level" id="education_level">
+                    <option value="uni">University</option>
+                    <option value="college">College</option>
+                    <option value="high_school">High School</option>
+                    <option value="none">None</option>
+                </select>
+            </fieldset>
+            
+            <br>
+            
+            <fieldset>
+                <legend>Essay Section</legend>
+                <label for="essay">In 50 words or more, explain why you want to date my daughter:</label>
+                <br>
+                <textarea name="essay" id="essay" placeholder="Enter text here" rows="4"cols="50" placeholder="Enter Text Here" onchange="validateEssay()" required></textarea>
+                <span class="error-message" id="essayError"></span>
+                <br><br>
+                
+                <p>Upload Police Clearance Certificate, Bank Statement, and Medical Certificates:</p>
+                <input type="file" id="file" multiple>
+                <span class="error-message" id="fileError"></span>
+            </fieldset>
+            
+            <br>
+            
+            <button type="submit" id="submit" >Send Your Application</button>
+        </form>
+    </main>
 </body>
 </html>
