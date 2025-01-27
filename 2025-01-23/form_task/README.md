@@ -4,7 +4,7 @@
 
 Replicating the existing Form Task as you would.
 
-## Here is a screenshot of the output
+## Here is a screenshot of the output before entering data crudentials
 
 ## 1
 
@@ -17,3 +17,19 @@ Replicating the existing Form Task as you would.
 ## 3
 
 ![Third](./output/output2.png)
+
+## Here is screenshot of the output after entering data/ checking for validations
+
+## 4
+
+![First](./output/output4.png)
+
+## 5
+
+![Second](./output/output5.png)
+
+## After submitting the form
+
+## 6
+
+![Third](./output/output6.png)
