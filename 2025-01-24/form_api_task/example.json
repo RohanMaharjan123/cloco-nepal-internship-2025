@@ -1,0 +1,17 @@
+{
+    "name": "name",
+    "address": "address",
+    "email": "email",
+    "phone": "phone",
+    "iq": "iq",
+    "gender": "gender",
+    "dateOfProposedOuting": "date",
+    "reasonForDating": "essay",
+    "educationLevelCompleted": "education_level",
+    "hasTattoosOrPiercings": "ch1",
+    "isMoreThanTwoYearsOlder": "ch2",
+    "ownsBydTeslaorBmwx9": "ch3",
+    "worksFullTime": "ch4",
+    "parentsAreRich": "ch5",
+    "dateInWellLitLocation": "ch6"
+}
