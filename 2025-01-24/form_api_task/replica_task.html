@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="replica_task.css">
+    <title>Application Form</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("DatingForm");
+            let error = false;
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // Prevents submission
+
+                error = false; // Reset error
+                validatingName();
+                validatingAddress();
+                validatingEmail();
+                validatingPhone();
+                validatingIQ();
+                validatingDate();
+                validatingEssay();
+                validateCheckbox();
+
+                if (!error) {
+                    alert("Form submitted successfully!");
+                    form.reset();
+                }
+            });
+
+            const validatingName = () => {
+                const name = document.getElementById("name").value.trim();
+                const errorField = document.getElementById("nameError");
+                if (name.length < 3 || name.length > 40) {
+                    errorField.textContent = "Name must be between 3 and 40 characters.";
+                    error = true;
+                } else {
+                    errorField.textContent = "";
+                    return true;
+                }
+            };
+
+            const validatingAddress = () => {
+                const address = document.getElementById("address").value.trim();
+                const errorField = document.getElementById("addressError");
+                if (address.length < 3) {
+                    errorField.textContent = "Address must be at least 3 characters long.";
+                    error = true;
+                } else {
+                    errorField.textContent = "";
+                    return true;
+                }
+            };
+
+            const validatingEmail = () => {
+                const email = document.getElementById("email").value.trim();
+                const errorField = document.getElementById("emailError");
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    errorField.textContent = "Please enter a valid email address.";
+                    error = true;
+                } else {
+                    errorField.textContent = "";
+                    return true;
+                }
+            };
+
+            const validatingPhone = () => {
+                const phone = document.getElementById("phone").value.trim();
+                const errorField = document.getElementById("phoneError");
+                if (!/^\d{10}$/.test(phone)) {
+                    errorField.textContent = "Phone number must be exactly 10 digits.";
+                    error = true;
+                } else {
+                    errorField.textContent = "";
+                    return true;
+                }
+            };
+
+            const validatingIQ = () => {
+                const iq = document.getElementById("iq").value.trim();
+                const errorField = document.getElementById("iqError");
+                if (iq < 80 || iq > 200) {
+                    errorField.textContent = "IQ must be between 80 and 200.";
+                    error = true;
+                } else {
+                    errorField.textContent = "";
+                    return true;
+                }
+            };
+
+            function validateCheckbox() {
+                const checkbox = document.querySelector(
+                    'input[type="checkbox"]:checked'
+                );
+                const checkboxError = document.getElementById("checkboxError");
+
+                if (!checkbox) {
+                    checkboxError.textContent = "Please select at least one option.";
+                    return false;
+                } else {
+                    checkboxError.textContent = "";
+                    return true;
+                }
+            }
+
+            const validatingDate = () => {
+                const date = document.getElementById("date").value;
+                const errorField = document.getElementById("dateError");
+                if (!date) {
+                    errorField.textContent = "Please select a valid date.";
+                    error = true;
+                } else {
+                    errorField.textContent = "";
+                    return true;
+                }
+            };
+
+            const validatingEssay = () => {
+                const essay = document.getElementById("essay").value.trim();
+                const errorField = document.getElementById("essayError");
+                if (essay.length < 50) {
+                    errorField.textContent = "Essay must be at least 50 words.";
+                    error = true;
+                } else {
+                    errorField.textContent = "";
+                    return true;
+                }
+            };
+
+            async function validate(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const isNameValid = validatingName();
+                const isAddressValid = validatingAddress();
+                const isPhoneValid = validatingPhone();
+                const isIQValid = validatingIQ();
+                const isCheckboxValid = validateCheckbox();
+                const isEssayValid = validatingEssay();
+
+                if (
+                    isNameValid &&
+                    isAddressValid &&
+                    isPhoneValid &&
+                    isIQValid &&
+                    isCheckboxValid &&
+                    isEssayValid
+                ) {
+                    // Collecting form data into JSON
+                    const formData = {
+                        name: document.getElementById("name").value,
+                        address: document.getElementById("address").value,
+                        email: document.getElementById("email").value,
+                        phone: document.getElementById("phone").value,
+                        iq: parseInt(document.getElementById("iq").value),
+                        gender: document.querySelector('input[name="gender"]:checked').value,
+                        dateOfProposedOuting: document.getElementById("date").value,
+                        reasonForDating: document.getElementById("essay").value,
+                        educationLevelCompleted: document.getElementById("education_level").value,
+                        hasTattoosOrPiercings: document.getElementById("ch1").checked,
+                        isMoreThanTwoYearsOlder: document.getElementById("ch2").checked,
+                        ownsBydTeslaorBmwx9: document.getElementById("ch3").checked,
+                        worksFullTime: document.getElementById("ch4").checked,
+                        parentsAreRich: document.getElementById("ch5").checked,
+                        dateInWellLitLocation: document.getElementById("ch6").checked,
+                    };
+
+                    console.log(JSON.stringify(formData));
+
+                    try {
+                        const response = await fetch(
+                            "your-json-bin-url",
+                            {
+                                method: "PUT",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "X-Master-Key": "your-master-key",
+                                },
+                                body: JSON.stringify(formData),
+                            }
+                        );
+                        const result = await response.json();
+                        console.log(result);
+
+                        if (response.ok) {
+                            alert("Data posted successfully!");
+                            form.reset();
+                            console.log("Response Data:", result);
+                        } else {
+                            alert("Failed to update data.");
+                            console.error("Error Response:", result);
+                        }
+                    } catch (error) {
+                        console.error("Network or API error:", error);
+                        alert("An error occurred while posting data.");
+                    }
+                }
+            }
+
+            async function displayData() {
+                try {
+                    // Fetch the data from JSONBin
+                    const response = await fetch(
+                        "your-json-bin-url",
+                        {
+                            method: "GET",
+                            headers: {
+                                "X-Master-Key": "your-master-key",
+                            },
+                        }
+                    );
+
+                    if (response.ok) {
+                        const data = await response.json(); // Parse the JSON data
+                        renderData(data.record); // Pass the data to a rendering function
+                    } else {
+                        console.error("Failed to fetch data:", response.status);
+                    }
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+
+            // Function to render the data
+            function renderData(data) {
+                const dataContainer = document.getElementById("DatingForm");
+
+                dataContainer.innerHTML = "";
+
+                const list = document.createElement("ul");
+
+                for (const key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        const listItem = document.createElement("li");
+                        listItem.innerHTML = `<strong>${key}:</strong> ${data[key]}`;
+                        list.appendChild(listItem);
+                    }
+                }
+                dataContainer.appendChild(list);
+            }
+
+            document.addEventListener("DOMContentLoaded", displayData);
+        });
+    </script>
+</head>
+<body>
+    <main id="container">
+        <form id="DatingForm">
+            <h1>Application For Permission To Date My Daughter</h1>
+            <p><b>Note:</b> Form is to be completed at least 21 days prior to the date.</p>
+
+            <fieldset>
+                <legend>Personal Details</legend>
+                <label for="name" id="applicationForm">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                <span class="error-message" id="nameError"></span>
+                <br><br>
+
+                <label for="address">Address:</label>
+                <input type="text" name="address" id="address" placeholder="Enter your address" required>
+                <span class="error-message" id="addressError"></span>
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <span class="error-message" id="emailError"></span>
+                <br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="text" name="number" id="phone" placeholder="Enter 10-digit phone number" required>
+                <span class="error-message" id="phoneError"></span>
+                <br><br>
+
+                <label for="iq">IQ:</label>
+                <input type="number" name="iq" id="iq" placeholder="Enter your IQ">
+                <span class="error-message" id="iqError"></span>
+                <br><br>
+
+                <label>Gender:</label><br>
+                <input type="radio" name="gender" value="male" id="male" checked>
+                <label for="male">Male</label><br>
+                <br>
+
+                <label for="date">Date of Proposed Outing:</label>
+                <input type="date" id="date" name="date" required>
+                <span class="error-message" id="dateError"></span>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Check All That Apply</legend>
+                <label><input type="checkbox" name="tattoos" id="ch1"> I have tattoos and/or piercings</label><br><br>
+                <label><input type="checkbox" name="age_difference" id="ch2"> I am more than 2 years older than your daughter</label><br><br>
+                <label><input type="checkbox" name="car" id="ch3"> I own a BYD, Tesla or BMW series X9</label><br><br>
+                <label><input type="checkbox" name="employment" id="ch4"> I work full-time</label><br><br>
+                <label><input type="checkbox" name="wealthy_parents" id="ch5"> My parents are rich</label><br><br>
+                <label><input type="checkbox" name="public_location" id="ch6"> Is the date at a well-lit public location?</label><br><br>
+                <span class="error-message" id="checkboxError"></span>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Educational Details</legend>
+
+                <label for="education_level">Education Level:</label>
+                <select name="education_level" id="education_level">
+                    <option value="uni">University</option>
+                    <option value="college">College</option>
+                    <option value="high_school">High School</option>
+                    <option value="none">None</option>
+                </select>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Essay Section</legend>
+                <label for="essay">In 50 words or more, explain why you want to date my daughter:</label>
+                <br>
+                <textarea name="essay" id="essay" rows="4" cols="50" placeholder="Enter Text Here" required></textarea>
+                <span class="error-message" id="essayError"></span>
+                <br><br>
+
+                <p>Upload Police Clearance Certificate, Bank Statement, and Medical Certificates:</p>
+                <input type="file" id="file" multiple>
+                <span class="error-message" id="fileError"></span>
+            </fieldset>
+
+            <br>
+
+            <button type="submit" id="submit">Send Your Application</button>
+        </form>
+    </main>
+</body>
+</html>
