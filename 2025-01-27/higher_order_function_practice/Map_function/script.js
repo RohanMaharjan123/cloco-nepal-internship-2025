@@ -2,7 +2,7 @@ const students = [
     {
         name: "Prajan Ghimire",
         faculty: "BIM",
-        year: 2,
+        year: 3,
         courses: ["Economics", "Database", "Programming"]
     },
     {
