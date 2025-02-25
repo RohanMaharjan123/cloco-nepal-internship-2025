@@ -1,0 +1,121 @@
+/* TodoList.module.css */
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background: #e5edf6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+.inputContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.inputField {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.addButton {
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.addButton:hover {
+    background: #218838;
+}
+
+.taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.taskText {
+    flex: 1;
+    text-align: left;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 5px;
+}
+
+.editButton {
+    background: #ffc107;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.editButton:hover {
+    background: #e0a800;
+}
+
+.deleteButton {
+    background: #dc3545;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background: #c82333;
+}
+
+.saveButton {
+    background: #007bff;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    background: #0056b3;
+}
+
+.cancelButton {
+    background: #6c757d;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancelButton:hover {
+    background: #5a6268;
+}
